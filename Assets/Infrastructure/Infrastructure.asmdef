@@ -1,0 +1,4 @@
+{
+	"name": "Infrastructure",
+	"references": ["Domain","Application","Presentation","VContainer"]
+}

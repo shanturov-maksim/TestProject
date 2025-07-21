@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Label text="Level: " name="levelLabel" emoji-fallback-support="true" parse-escape-sequences="false" selectable="false" />
+    <ui:Label text="Damage: " name="damageLabel" />
+    <ui:Label text="Health: " name="healthLabel" />
+    <ui:Button text="Upgrade" name="upgradeButton" />
+</ui:UXML>
