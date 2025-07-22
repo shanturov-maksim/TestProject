@@ -20,7 +20,7 @@ namespace Domain.Models
             ResetToBaseStats();
         }
 
-        public void ResetToBaseStats()
+        private void ResetToBaseStats()
         {
             Level.Value = _config.BaseLevel;
             Damage.Value = _config.BaseDamage;

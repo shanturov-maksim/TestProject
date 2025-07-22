@@ -1,0 +1,4 @@
+.auto-text {
+    -unity-text-scale-mode: scale-to-fit;
+    -unity-text-align: middle-center;
+}

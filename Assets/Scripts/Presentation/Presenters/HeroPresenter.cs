@@ -7,6 +7,9 @@ using VContainer.Unity;
 
 namespace Presentation.Presenters
 {
+    /// <summary>
+    /// Presenter для управления моделью Her
+    /// </summary>
     public sealed class HeroPresenter : IStartable, IDisposable
     {
         private readonly UIDocument _uiDocument;
