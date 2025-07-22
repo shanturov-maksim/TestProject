@@ -367,7 +367,8 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _uiDocument: {fileID: 0}
+  _uiDocument: {fileID: 1939700651}
+  _heroConfig: {fileID: 11400000, guid: 225b1fbb238d35244b440ed7f41b5b22, type: 2}
 --- !u!4 &531366932
 Transform:
   m_ObjectHideFlags: 0

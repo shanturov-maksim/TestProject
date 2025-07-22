@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6d6ed385ea04a4ba5bb9759c336bbf, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  <BaseLevel>k__BackingField: 0
-  <BaseDamage>k__BackingField: 0
-  <BaseHealth>k__BackingField: 0
-  <LevelIncrement>k__BackingField: 0
-  <DamageIncrement>k__BackingField: 0
-  <HealthIncrement>k__BackingField: 0
+  <BaseLevel>k__BackingField: 5
+  <BaseDamage>k__BackingField: 5
+  <BaseHealth>k__BackingField: 5
+  <LevelIncrement>k__BackingField: 1
+  <DamageIncrement>k__BackingField: 1
+  <HealthIncrement>k__BackingField: 1
