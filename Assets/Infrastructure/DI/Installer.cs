@@ -14,7 +14,7 @@ public class Installer : LifetimeScope
     {
         builder.Register<HeroModel>(Lifetime.Singleton);
         builder.Register<UpgradeHeroUsecase>(Lifetime.Singleton);
-        builder.RegisterComponent(_uiDocument).As<UIDocument>();
+        builder.RegisterInstance(_uiDocument);
         builder.RegisterEntryPoint<HeroPresenter>();
     }
 }

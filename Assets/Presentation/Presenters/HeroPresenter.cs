@@ -2,37 +2,48 @@ using System;
 using Application.UseCases;
 using Domain.Models;
 using R3;
-using UnityEngine;
 using UnityEngine.UIElements;
+using VContainer.Unity;
 
 namespace Presentation.Presenters
 {
-    public sealed class HeroPresenter : IDisposable
+    public sealed class HeroPresenter : IStartable, IDisposable
     {
+        private readonly UIDocument _uiDocument;
+        private readonly UpgradeHeroUsecase _useCase;
         private readonly HeroModel _hero;
-        private readonly VisualElement _root;
+        private VisualElement _root;
         private readonly CompositeDisposable _disposables = new();
 
-        public HeroPresenter(UIDocument uiDocument, HeroModel hero, UpgradeHeroUsecase useCase)
+        public HeroPresenter(
+            UIDocument uiDocument,
+            HeroModel hero,
+            UpgradeHeroUsecase useCase)
         {
-            Debug.Log($"Presenter started. UIDoc: {uiDocument != null}");
-            Debug.Log($"HeroModel: {_hero != null}");
-            Debug.Log($"UseCase: {useCase != null}");
-            
+            _uiDocument = uiDocument;
             _hero = hero;
-            _root = uiDocument.rootVisualElement;
+            _useCase = useCase;
+        }
+
+        public void Start()
+        {
+            _root = _uiDocument.rootVisualElement;
+
+            var levelLabel = _root.Q<Label>("levelLabel");
+            var damageLabel = _root.Q<Label>("damageLabel");
+            var healthLabel = _root.Q<Label>("healthLabel");
+            var button = _root.Q<Button>("upgradeButton");
+
+            _hero.Level.Subscribe(l => levelLabel.text = $"Level: {l}").AddTo(_disposables);
+            _hero.Damage.Subscribe(d => damageLabel.text = $"Damage: {d}").AddTo(_disposables);
+            _hero.Health.Subscribe(h => healthLabel.text = $"Health: {h}").AddTo(_disposables);
             
-            var root = uiDocument.rootVisualElement;
-            Debug.Log($"Root element: {root != null}");
-            
-            _hero.Level.Subscribe(l => _root.Q<Label>("levelLabel").text = $"Level: {l}").AddTo(_disposables);
-            _hero.Damage.Subscribe(d => _root.Q<Label>("damageLabel").text = $"Damage: {d}").AddTo(_disposables);
-            _hero.Health.Subscribe(h => _root.Q<Label>("healthLabel").text = $"Health: {h}").AddTo(_disposables);
-            
-            _root.Q<Button>("upgradeButton").clickable.clicked += useCase.Execute;
+            button.clickable.clicked += _useCase.Execute;
         }
         
-        
-        public void Dispose() => _disposables.Dispose();
+        public void Dispose()
+        {
+            _disposables.Dispose();
+        }
     }
 }

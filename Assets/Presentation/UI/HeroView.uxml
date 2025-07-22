@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
-    <ui:Label text="Level: " name="levelLabel" emoji-fallback-support="true" parse-escape-sequences="false" selectable="false" />
+    <ui:Label text="Level: " name="levelLabel" emoji-fallback-support="true" parse-escape-sequences="false" selectable="false" style="white-space: pre-wrap; opacity: 1; right: auto; left: auto; flex-direction: column; -unity-text-align: upper-left; align-items: auto; width: auto; position: relative; margin-left: 4px; padding-left: 4px; flex-wrap: nowrap; font-size: initial; -unity-text-outline-width: 0; height: 30px;" />
     <ui:Label text="Damage: " name="damageLabel" />
     <ui:Label text="Health: " name="healthLabel" />
     <ui:Button text="Upgrade" name="upgradeButton" />

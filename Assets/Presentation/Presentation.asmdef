@@ -1,5 +1,5 @@
 {
 	"name": "Presentation",
-	"references": ["Domain","Application"]
+	"references": ["Domain","Application","VContainer"]
 }
 
